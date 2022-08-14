@@ -51,12 +51,12 @@ export class CommonService {
 //4. Whenever there is an update to the item, notify the subject using "next()".
 
   cart:CartItem[] =[
-   {
-    id:1,
-  title:"test",
-  price:123,
-  qty:1,
-   }
+  //  {
+  //   id:1,
+  // title:"test",
+  // price:123,
+  // qty:1,
+  //  }
 
   ];
   cartSubject = new BehaviorSubject(this.cart)
@@ -67,7 +67,15 @@ export class CommonService {
 
 
 
+  removeFromCart(id:number){
+    let cartindex = this.cart.findIndex(x=> x.id ===id);
+      this.cart.splice(cartindex, 1);
+      console.log(this.cart);
 
+      this.cartSubject.next(this.cart);
+      console.log(this.cart);
+
+  }
 
 
 

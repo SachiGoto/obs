@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<h1>Cart</h1>
+
+<div class="cartContainer container">
+  <div class="row" *ngFor="let cartitem of cart">
+    <div class="col-1">{{cartitem.id}}</div>
+    <div class="col-5">{{cartitem.title}}</div>
+    <div class="col-1">{{cartitem.qty}}</div>
+    <div class="col-2">{{cartitem.price}}</div>
+    <div class="col-3">{{cartitem.qty * cartitem.price | currency:'CAD'}}</div>
+    <div class="col-1"><button class="btn btn-danger" (click)="removeFromCart(cartitem.id)">x</button></div>
+  </div>
+
+  <div><h3>Total Cost: {{totalCost | currency:'CAD'}}</h3></div>
+
+  <div>
+    <button class="btn btn-warning">Proceed to Checkout</button>
+  </div>
+</div>

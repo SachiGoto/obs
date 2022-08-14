@@ -67,12 +67,14 @@ export class ProductsComponent implements OnInit {
   }
 
   removeFromCart(id:number){
-    let cartindex = this.cs.cart.findIndex(x=> x.id ===id);
-      this.cs.cart.splice(cartindex, 1);
-      console.log(this.cs.cart);
+    // let cartindex = this.cs.cart.findIndex(x=> x.id ===id);
+    //   this.cs.cart.splice(cartindex, 1);
+    //   console.log(this.cs.cart);
 
-      this.cs.cartSubject.next(this.cs.cart);
-      console.log(this.cs.cart);
+    //   this.cs.cartSubject.next(this.cs.cart);
+    //   console.log(this.cs.cart);
+
+    this.cs.removeFromCart(id);
 
   }
 

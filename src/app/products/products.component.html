@@ -1,0 +1,21 @@
+
+
+<h1>Products</h1>
+
+<div class="productContainer mt-3" *ngFor="let product of products">
+
+
+  <h5>Product ID: {{product.id}}</h5>
+  <h3>{{product.title}}</h3>
+  <p>{{product.price| currency:"CAD"}}</p>
+  <div class="mt-3 btnContainer">
+    <button (click)="decQty(product.id)">-</button>
+    <!-- <input type="number" [value]="product.qty" class="qtyinput"> -->
+    <div class="qtyinput">{{product.qty}}</div>
+    <button (click)="incQty(product.id)">+</button>
+  </div>
+
+  <button class="btn btn-warning mt-3" (click)="addToCart(product.id, product.title,product.price, product.qty)">Add to Cart</button>
+  <button (click)="removeFromCart(product.id)" class="btn btn-danger">X</button>
+
+</div>
